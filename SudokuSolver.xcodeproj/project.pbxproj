@@ -24,6 +24,7 @@
 		0B20995A172D976A007EC5CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B209932172D976A007EC5CC /* Foundation.framework */; };
 		0B209962172D976A007EC5CC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0B209960172D976A007EC5CC /* InfoPlist.strings */; };
 		0B209965172D976A007EC5CC /* SudokuSolverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B209964172D976A007EC5CC /* SudokuSolverTests.m */; };
+		0B20996F172D9DCA007EC5CC /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 0B20996E172D9DCA007EC5CC /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		0B209961172D976A007EC5CC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0B209963172D976A007EC5CC /* SudokuSolverTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SudokuSolverTests.h; sourceTree = "<group>"; };
 		0B209964172D976A007EC5CC /* SudokuSolverTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SudokuSolverTests.m; sourceTree = "<group>"; };
+		0B20996E172D9DCA007EC5CC /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 		0B209921172D976A007EC5CC = {
 			isa = PBXGroup;
 			children = (
+				0B20996E172D9DCA007EC5CC /* .gitignore */,
 				0B209936172D976A007EC5CC /* SudokuSolver */,
 				0B20995D172D976A007EC5CC /* SudokuSolverTests */,
 				0B20992F172D976A007EC5CC /* Frameworks */,
@@ -240,6 +243,7 @@
 				0B209947172D976A007EC5CC /* Default-568h@2x.png in Resources */,
 				0B20994A172D976A007EC5CC /* MainStoryboard_iPhone.storyboard in Resources */,
 				0B20994D172D976A007EC5CC /* MainStoryboard_iPad.storyboard in Resources */,
+				0B20996F172D9DCA007EC5CC /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
