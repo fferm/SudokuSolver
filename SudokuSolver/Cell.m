@@ -9,6 +9,7 @@
 #import "Cell.h"
 
 @implementation Cell
+
 -(id)initAtRow:(int)row andCol:(int)col {
     self = [self init];
     
@@ -17,5 +18,4 @@
     
     return self;
 }
-
 @end

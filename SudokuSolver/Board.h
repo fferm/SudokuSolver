@@ -14,4 +14,7 @@
 #define BOARD_SIZE 9
 
 -(Cell *)getCellAtRow:(int)row andAtCol:(int)col;
+
+-(NSSet *)cellsInSameGroupAs:(Cell *)cell;
+
 @end

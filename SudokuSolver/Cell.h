@@ -13,5 +13,4 @@
 @property int col;
 
 -(id)initAtRow:(int)row andCol:(int)col;
-
 @end
