@@ -11,6 +11,7 @@
 @interface Cell : NSObject
 @property int row;
 @property int col;
+@property (nonatomic, readonly) NSArray *possibilities;
 
 -(id)initAtRow:(int)row andCol:(int)col;
 @end

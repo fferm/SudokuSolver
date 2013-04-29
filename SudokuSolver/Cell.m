@@ -7,8 +7,22 @@
 //
 
 #import "Cell.h"
+#import "Board.h"
 
 @implementation Cell
+@synthesize possibilities = _possibilities;
+
+-(NSArray *)possibilities {
+    if (!_possibilities) {
+        NSMutableArray *mutRet = [NSMutableArray array];
+        for (int i = 1; i <= BOARD_SIZE; i++) {
+            NSNumber *oInt = [[NSNumber alloc] initWithInt:i];
+            [mutRet addObject:oInt];
+        }
+        _possibilities = [mutRet copy];
+    }
+    return _possibilities;
+}
 
 -(id)initAtRow:(int)row andCol:(int)col {
     self = [self init];
