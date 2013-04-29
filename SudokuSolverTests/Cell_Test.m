@@ -12,14 +12,57 @@
 
 @interface Cell_Test()
 @property (nonatomic, strong) Cell *cell11;
+@property (nonatomic, strong) Board *board;
 @end
 
 @implementation Cell_Test
 @synthesize cell11 = _cell11;
+@synthesize board = _board;
 
 -(void)setUp {
-    self.cell11 = [[Cell alloc] initAtRow:1 andCol:1];
+    self.board = [[Board alloc] init];
+    self.cell11 = [[Cell alloc] initForBoard:self.board atRow:1 andCol:1];
 }
+
+-(void)test_cellPointsBackToBoard {
+    STAssertTrue(self.cell11.board == self.board, @"cell.board should return same board as cell was created with");
+}
+
+-(void)test_group {
+    for (int row = 1; row <= BOARD_SIZE; row++) {
+        for (int col = 1; col <= BOARD_SIZE; col++) {
+            Cell *cell = [self.board getCellAtRow:row andAtCol:col];
+            
+            NSSet *inSameGroup = [cell cellsInSameGroup];
+            
+            // Check number of cells i same group
+            STAssertTrue([inSameGroup count] == 21, @"There should be 21 cells in the same group");
+            
+            // Check at all cells in same row are part of the group
+            for (int otherCol = 1; otherCol <= BOARD_SIZE; otherCol++) {
+                Cell *otherCell = [self.board getCellAtRow:row andAtCol:otherCol];
+                STAssertTrue([inSameGroup containsObject:otherCell],[NSString stringWithFormat:@"All cells in the same row should be part of the group.  Row: %i, Col: %i, OtherCol: %i", row, col, otherCol] );
+            }
+            
+            // Check that all cells in same col are part of the group
+            for (int otherRow = 1; otherRow <= BOARD_SIZE; otherRow++) {
+                Cell *otherCell = [self.board getCellAtRow:otherRow andAtCol:col];
+                STAssertTrue([inSameGroup containsObject:otherCell],[NSString stringWithFormat:@"All cells in the same col should be part of the group.  Row: %i, Col: %i, OtherRow: %i", row, col, otherRow] );
+            }
+            
+            // Check that all cells in square group are part of the group
+            int startingOtherCol = col - ((col - 1) % 3);
+            int startingOtherRow = row - ((row - 1) % 3);
+            for (int otherRow = startingOtherRow; otherRow < startingOtherRow + 3; otherRow++) {
+                for (int otherCol = startingOtherCol; otherCol < startingOtherCol + 3; otherCol++) {
+                    Cell *otherCell = [self.board getCellAtRow:otherRow andAtCol:otherCol];
+                    STAssertTrue([inSameGroup containsObject:otherCell],[NSString stringWithFormat:@"All cells in the same square should be part of the group.  Row: %i, Col: %i, OtherRow: %i, OtherCol: %i", row, col, otherRow, otherCol] );
+                }
+            }
+        }
+    }
+}
+
 
 -(void)test_cellHasFullListOfPossibilitiesWhenCreated {
     NSArray *possibilities = self.cell11.possibilities;

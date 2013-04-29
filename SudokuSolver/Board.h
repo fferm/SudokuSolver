@@ -9,12 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "Cell.h"
 
+@class Cell;
+
 @interface Board : NSObject
 
 #define BOARD_SIZE 9
 
 -(Cell *)getCellAtRow:(int)row andAtCol:(int)col;
 
--(NSSet *)cellsInSameGroupAs:(Cell *)cell;
 
 @end

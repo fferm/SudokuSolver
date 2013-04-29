@@ -7,6 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Board.h"
+
+@class Board;
 
 @interface Cell : NSObject
 @property int row;
@@ -14,8 +17,11 @@
 @property (nonatomic, readonly) NSArray *possibilities;
 @property BOOL isSolved;
 @property int solution;
+@property (nonatomic, readonly) Board *board;
 
--(id)initAtRow:(int)row andCol:(int)col;
+-(id)initForBoard:(Board *) board atRow:(int)row andCol:(int)col;
+
+-(NSSet *)cellsInSameGroup;
 
 -(void)removePossibility:(int)i;
 @end
