@@ -37,6 +37,11 @@
     NSMutableArray *mutRet = [self.possibilities mutableCopy];
     [mutRet removeObject:[NSNumber numberWithInt:i]];
     _possibilities = [mutRet copy];
+    
+    if (self.possibilities.count == 1) {
+        self.isSolved = YES;
+        self.solution = [[self.possibilities objectAtIndex:0] intValue];
+    }
 }
 
 @end

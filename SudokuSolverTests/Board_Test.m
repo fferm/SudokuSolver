@@ -22,7 +22,7 @@
     self.board = [[Board alloc] init];
 }
 
--(void)testBoardHasCells {
+-(void)test_boardHasCells {
     for(int row = 1; row <= BOARD_SIZE; row++) {
         for (int col = 1; col <= BOARD_SIZE; col++) {
             Cell *cell = [self.board getCellAtRow:row andAtCol:col];
@@ -31,7 +31,7 @@
     }
 }
 
--(void)testIllegalBoardCoordinates {
+-(void)test_illegalBoardCoordinates {
     STAssertThrows(
                    [self.board getCellAtRow:0 andAtCol:1],
                    @"getCellAtRow:0 andAtCol:1 is out of bounds"
@@ -55,7 +55,7 @@
 
 }
 
--(void)testCellCoordinatesSameAsBoardCoordinates {
+-(void)test_cellCoordinatesSameAsBoardCoordinates {
     for (int row = 1; row <= BOARD_SIZE; row++) {
         for (int col = 1; col <= BOARD_SIZE; col++) {
             Cell *cell = [self.board getCellAtRow:row andAtCol:col];
@@ -65,7 +65,7 @@
     }
 }
 
--(void)testGroup {
+-(void)test_group {
     for (int row = 1; row <= BOARD_SIZE; row++) {
         for (int col = 1; col <= BOARD_SIZE; col++) {
             Cell *cell = [self.board getCellAtRow:row andAtCol:col];

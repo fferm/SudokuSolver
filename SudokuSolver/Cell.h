@@ -12,6 +12,8 @@
 @property int row;
 @property int col;
 @property (nonatomic, readonly) NSArray *possibilities;
+@property BOOL isSolved;
+@property int solution;
 
 -(id)initAtRow:(int)row andCol:(int)col;
 

@@ -21,7 +21,7 @@
     self.cell11 = [[Cell alloc] initAtRow:1 andCol:1];
 }
 
--(void)testCellHasFullListOfPossibilitiesWhenCreated {
+-(void)test_cellHasFullListOfPossibilitiesWhenCreated {
     NSArray *possibilities = self.cell11.possibilities;
     
     STAssertTrue(BOARD_SIZE == [possibilities count], [NSString stringWithFormat:@"Size of possibilities when cell is created.  Is %i, should be %i", [possibilities count], BOARD_SIZE]);
@@ -32,7 +32,7 @@
     }
 }
 
--(void)testCellHasFewerPossibilitiesWhenSomeRemoved {
+-(void)test_cellHasFewerPossibilitiesWhenSomeRemoved {
     [self.cell11 removePossibility:1];
     
     NSArray *possibilities = self.cell11.possibilities;
@@ -45,6 +45,45 @@
     }
     
     STAssertFalse([possibilities containsObject:[NSNumber numberWithInt:1]], @"Possibilities should not contain 1 after it is removed");
+}
+
+-(void)test_cellNotSolvedWhenCreated {
+    STAssertFalse(self.cell11.isSolved, @"isSolved property");
+    STAssertTrue(self.cell11.solution == 0, @"Property solution should be 0 before a solution is found");
+}
+
+-(void)test_cellSolvedWhenEightPossibilitiesHaveBeenRemoved {
+    [self.cell11 removePossibility:1];
+    STAssertFalse(self.cell11.isSolved, @"isSolved property after removing 1");
+    STAssertTrue(self.cell11.solution == 0, @"Property solution should be 0 before a solution is found");
+
+    [self.cell11 removePossibility:2];
+    STAssertFalse(self.cell11.isSolved, @"isSolved property after removing 2");
+    STAssertTrue(self.cell11.solution == 0, @"Property solution should be 0 before a solution is found");
+    
+    [self.cell11 removePossibility:3];
+    STAssertFalse(self.cell11.isSolved, @"isSolved property after removing 3");
+    STAssertTrue(self.cell11.solution == 0, @"Property solution should be 0 before a solution is found");
+    
+    [self.cell11 removePossibility:4];
+    STAssertFalse(self.cell11.isSolved, @"isSolved property after removing 4");
+    STAssertTrue(self.cell11.solution == 0, @"Property solution should be 0 before a solution is found");
+    
+    [self.cell11 removePossibility:5];
+    STAssertFalse(self.cell11.isSolved, @"isSolved property after removing 5");
+    STAssertTrue(self.cell11.solution == 0, @"Property solution should be 0 before a solution is found");
+    
+    [self.cell11 removePossibility:6];
+    STAssertFalse(self.cell11.isSolved, @"isSolved property after removing 6");
+    STAssertTrue(self.cell11.solution == 0, @"Property solution should be 0 before a solution is found");
+    
+    [self.cell11 removePossibility:7];
+    STAssertFalse(self.cell11.isSolved, @"isSolved property after removing 7");
+    STAssertTrue(self.cell11.solution == 0, @"Property solution should be 0 before a solution is found");
+    
+    [self.cell11 removePossibility:8];
+    STAssertTrue(self.cell11.isSolved, @"isSolved property with solution");
+    STAssertTrue(self.cell11.solution == 9, @"Property solution should be the solution when it is found");
 }
 
 @end
