@@ -32,4 +32,11 @@
     
     return self;
 }
+
+-(void)removePossibility:(int)i {
+    NSMutableArray *mutRet = [self.possibilities mutableCopy];
+    [mutRet removeObject:[NSNumber numberWithInt:i]];
+    _possibilities = [mutRet copy];
+}
+
 @end

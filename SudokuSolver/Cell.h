@@ -14,4 +14,6 @@
 @property (nonatomic, readonly) NSArray *possibilities;
 
 -(id)initAtRow:(int)row andCol:(int)col;
+
+-(void)removePossibility:(int)i;
 @end
